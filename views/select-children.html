@@ -1,0 +1,22 @@
+<h2>Select children</h2>
+<p>
+  Start depth:
+  <input id="start-depth" type="number" value="1" />
+</p>
+<p>
+  Number of depth:
+  <input id="number-of-depth" type="number" value="1" />
+</p>
+<button id="select-children">Select children</button>
+<button id="cancel">Cancel</button>
+<script>
+  document.getElementById('select-children').onclick = () => {
+    const startDepth = parseInt(document.getElementById('start-depth').value, 10)
+    const numberOfDepth = parseInt(document.getElementById('number-of-depth').value, 10)
+    parent.postMessage({ pluginMessage: { type: 'selectChildren', startDepth, numberOfDepth } }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'main' } }, '*')
+  }
+</script>

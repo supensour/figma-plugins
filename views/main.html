@@ -1,0 +1,62 @@
+<div id="f1755834882480">
+  <h2>Choose tool</h2>
+  <div class="actions">
+    <button id="group-child-and-set-size">Group child and set size</button>
+    <button id="select-children">Select children</button>
+    <button id="create-component">Create component</button>
+    <button id="group-child">Group child</button>
+    <button id="rename-layers">Rename layers</button>
+    <button id="resize">Resize</button>
+    <button id="create-variables">Create variables</button>
+  </div>
+  <p>
+    <button id="cancel">Cancel</button>
+  </p>
+</div>
+
+<script>
+  document.getElementById('group-child-and-set-size').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'groupChildAndSetSize' } }, '*')
+  }
+
+  document.getElementById('select-children').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'selectChildren' } }, '*')
+  }
+
+  document.getElementById('create-component').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'createComponent' } }, '*')
+  }
+
+  document.getElementById('group-child').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'groupChild' } }, '*')
+  }
+
+  document.getElementById('rename-layers').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'renameLayers' } }, '*')
+  }
+
+  document.getElementById('resize').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'resize' } }, '*')
+  }
+
+  document.getElementById('create-variables').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'createVariables' } }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+  }
+</script>
+
+<style>
+  #f1755834882480 .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  #f1755834882480 .actions button {
+    display: inline-flex;
+  }
+</style>

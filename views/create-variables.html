@@ -1,0 +1,38 @@
+<div id="f1755844434405">
+  <h2>Create variables</h2>
+  <p>
+    Collection name:
+    <input id="collection-name" type="text" value="Variables" />
+  </p>
+  <p>
+    Variables JSON:
+    <textarea id="variables-json" rows="5" cols="30"></textarea>
+  </p>
+  <button id="create-variables">Create variables</button>
+  <button id="cancel">Cancel</button>
+
+  <p>
+    <div style="padding: 16px; border: 1px solid grey; background: #fffbd8;">
+      <b>Note:</b>
+      <p>
+        The JSON should be an array of objects with the following properties:
+        <div>- key: string</div>
+        <div>- type: string, one of: BOOLEAN, COLOR, FLOAT, STRING</div>
+        <div>- value: string, the value of the variable</div>
+        <div>- mode: string, the mode of the variable. If not provided, the first mode will be used.</div>
+      </p>
+    </div>
+  </p>
+</div>
+
+<script>
+  document.getElementById('create-variables').onclick = () => {
+    const collectionName = document.getElementById('collection-name').value
+    const configs = JSON.parse(document.getElementById('variables-json').value)
+    parent.postMessage({ pluginMessage: { type: 'createVariables', collectionName, configs } }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'main' } }, '*')
+  }
+</script>

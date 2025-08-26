@@ -1,0 +1,26 @@
+{
+  "name": "Figma Plugins",
+  "id": "1540278350449838546",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma"
+  ],
+  "ui": {
+    "main": "views/main.html",
+    "groupChildAndSetSize": "views/group-child-and-set-size.html",
+    "selectChildren": "views/select-children.html",
+    "groupChild": "views/group-child.html",
+    "renameLayers": "views/rename-layers.html",
+    "resize": "views/resize.html",
+    "createVariables": "views/create-variables.html"
+  },
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

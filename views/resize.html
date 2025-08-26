@@ -1,0 +1,29 @@
+<div id="f1755837199488">
+  <h2>Resize</h2>
+  <p>
+    Width:
+    <input id="width" type="number" value="14" />
+  </p>
+  <p>
+    Height:
+    <input id="height" type="number" value="14" />
+  </p>
+  <p>
+    Keep ratio:
+    <input id="keep-ratio" type="checkbox" checked />
+  </p>
+  <button id="resize">Resize</button>
+  <button id="cancel">Cancel</button>
+</div>
+<script>
+  document.getElementById('resize').onclick = () => {
+    const width = parseInt(document.getElementById('width').value, 10)
+    const height = parseInt(document.getElementById('height').value, 10)
+    const keepRatio = document.getElementById('keep-ratio').checked
+    parent.postMessage({ pluginMessage: { type: 'resize', width, height, keepRatio } }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'main' } }, '*')
+  }
+</script>

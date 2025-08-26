@@ -1,0 +1,43 @@
+<div id="f1755833407572">
+  <h2>Rename layers</h2>
+  <p>
+    Format
+    <input id="format" type="text" />
+  </p>
+
+  <button id="rename-layers">Rename layers</button>
+  <button id="cancel">Cancel</button>
+
+  <p>
+    <div style="padding: 16px; border: 1px solid grey; background: #fffbd8;">
+      <b>Note:</b>
+      <ul>
+        <li>Use {seq} to insert the sequence number starting from 1.</li>
+        <li>Use {idx} to insert the sequence number starting from 0.</li>
+        <li>Use {name} to insert the original layer name.</li>
+        <li>Use {count} to insert the total number of layers.</li>
+        <li>Use {type} to insert the type of the layer in lowercase, i.e: frame, text, etc.</li>
+        <li>Use {type-uppercase} to insert the type of the layer in uppercase, i.e: FRAME, TEXT, etc.</li>
+        <li>Use {type-capitalized} to insert the type of the layer in capitalized, i.e: Frame, Text, etc.</li>
+      </ul>
+    </div>
+  </p>
+</div>
+
+<script>
+  document.getElementById('rename-layers').onclick = () => {
+    const format = document.getElementById('format').value
+
+    parent.postMessage({ pluginMessage: { type: 'renameLayers', format } }, '*')
+  }
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'showView', view: 'main' } }, '*')
+  }
+</script>
+
+<style>
+  #f1755833407572 ul {
+    padding-left: 24px;
+  }
+</style>
